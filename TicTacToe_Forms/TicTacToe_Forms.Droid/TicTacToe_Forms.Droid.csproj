@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{B29A4A4F-BAE9-46A6-97F2-25094A674535}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <RootNamespace>TicTacToe_Forms.Droid</RootNamespace>
+        <AssemblyName>TicTacToe_Forms.Droid</AssemblyName>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
+        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+        <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+        <AndroidLinkMode>None</AndroidLinkMode>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Mono.Android" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="MainActivity.cs" />
+        <Compile Include="Resources\Resource.Designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt" />
+        <None Include="Assets\AboutAssets.txt" />
+        <None Include="Properties\AndroidManifest.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\layout\Tabbar.axml" />
+        <AndroidResource Include="Resources\layout\Toolbar.axml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\icon_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\icon_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\icon_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\icon_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon_background.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon_monochrome.png" />
+        <AndroidResource Include="Resources\values\styles.xml" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TicTacToe_Forms\TicTacToe_Forms.csproj">
+            <Project>{68088961-9EE6-4FCD-8C95-91EBED132F05}</Project>
+            <Name>TicTacToe_Forms</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

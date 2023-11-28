@@ -18,6 +18,7 @@ namespace TicTacToe_Forms
         }
         public static bool symbol = true;
         public char[,] board = new char[6,3];
+        public List<Button> btns =  new List<Button>();
 
         protected override void OnAppearing()
         {
@@ -34,12 +35,12 @@ namespace TicTacToe_Forms
             }
             
             // Рисуем игровое поле 
-            Button btn = null;
+           // Button btn = null;
             for (int j = 2; j < 5; j++)     // Номер строки
             {
                 for (int i = 0; i < 3; i++) // Номер колонки
                 {
-                    btn = new Button();
+                    var btn = new Button();
                     btn.BackgroundColor = Color.FromHex("#61D89F");
                     btn.CornerRadius = 5;
                     btn.FontSize = 50;
@@ -47,7 +48,8 @@ namespace TicTacToe_Forms
                     Grid.SetColumn(btn, i);
 
                     btn.Clicked += Button_Clicked;
-
+                    
+                    btns.Add(btn);
                     Grid1.Children.Add(btn);
                 }
             }
@@ -55,6 +57,7 @@ namespace TicTacToe_Forms
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            this.btns.ForEach(x=> x.IsEnabled = false);
             
             board[Grid.GetRow(sender as Button), Grid.GetColumn(sender as Button)] = !symbol ? 'X' : 'O';
             char symbolChar = !symbol ? 'X' : 'O';
@@ -86,31 +89,35 @@ namespace TicTacToe_Forms
             {
                 var winner = symbol ? 'X' : 'O';
                 await DisplayAlert("Winner!", $"Player {winner} is win!!", "End");
-                await Navigation.PushAsync(new MainPage());
+                
             }  
             
-            /*if (CheckBoard(board))
+            if (IsBoardFull(board))
             {
                 await DisplayAlert("Ooooops", "no winner this game", "End");
-                await Navigation.PushAsync(new MainPage());
-            }*/
-                
+                //await Navigation.PopAsync(GamePage());
+            }
+            
+            ((Button)sender).IsEnabled = false;
+            
+
         }
 
 
-        /*private static bool CheckBoard(char[,] board)
+        private static bool IsBoardFull(char[,] board)
         {
+            var res = true;
             for (int j = 2; j < 5; j++)
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (board[j,i] == ' ')
+                    if (board[j,i] != 'X' && board[j,i] != 'O')
                     {
-                        return false;
+                        res = false;
                     }
                 }
             }
-            return true;
-        }*/
+            return res;
+        }
     }
 }
